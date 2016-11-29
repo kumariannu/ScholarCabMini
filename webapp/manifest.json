@@ -69,6 +69,43 @@
 			"css": [{
 				"uri": "css/style.css"
 			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "com.sap.scholar2016.cabmini.view",
+				"controlId": "app",
+				"controlAggregation": "pages"
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "welcome",
+					"target": "app"
+				},
+				{
+					"pattern": "userEntryView",
+					"name": "userEntryView",
+					"target": "userEntryView"
+				},
+				{
+					"pattern": "mapView",
+					"name": "mapView",
+					"target": "mapView"
+				}
+			],
+			"targets": {
+				"app": {
+					"viewName": "AppView"
+				},
+				"userEntryView": {
+					"viewName": "UseEntryView"
+				},
+				"mapView": {
+					"viewName": "MapView"
+				}
+			}
 		}
 	}
 }
