@@ -1,8 +1,10 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
-], function(Controller) {
+	"sap/ui/core/mvc/Controller",
+	"sap/ui/model/json/JSONModel"
+], function(Controller, JSONModel) {
 	"use strict";
-
+	var address = "",
+		canAvail = false;
 	return Controller.extend("com.sap.scholar2016.cabmini.controller.MapView", {
 
 		/**
@@ -10,9 +12,15 @@ sap.ui.define([
 		 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
 		 * @memberOf com.sap.scholar2016.cabmini.view.MapView
 		 */
-		//	onInit: function() {
-		//
-		//	},
+		onInit: function() {},
+		onPressOk: function() {
+			var oModel = sap.ui.getCore().getModel("mapData");
+			oModel.setProperty('/cab/address', address);
+			oModel.setProperty('/cab/canAvail', canAvail);
+			sap.ui.getCore().setModel(oModel, "mapData");
+			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			oRouter.navTo("userEntryView");
+		}
 
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
