@@ -13,10 +13,10 @@ sap.ui.define([
 			name: "",
 			email: "",
 			cab: {
-				"address": "",
-				"distance": "0 KM",
-				"canAvail": false,
-				"availed": false
+				address: "",
+				distance: 0,
+				canAvail: false,
+				availed: false
 			}
 		};
 
@@ -76,6 +76,7 @@ sap.ui.define([
 			var bind = new sap.ui.model.Binding(oTModel, "/cab", oTModel.getContext("/"));
 			bind.attachChange(function() {
 				var dataObj = JSON.parse(sap.ui.getCore().getModel("mapData").getJSON());
+				console.log(dataObj);
 				oModel.setProperty('/currentUser/cab/address', dataObj.cab.address);
 				oModel.setProperty('/currentUser/cab/canAvail', dataObj.cab.canAvail);
 				_view.setModel(oModel);
@@ -132,32 +133,6 @@ sap.ui.define([
 				var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 				oRouter.navTo("mapView");
 			}
-			/**
-			 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
-			 * (NOT before the first rendering! onInit() is used for that one!).
-			 * @memberOf com.sap.scholar2016.cabmini.view.UserEntryView
-			 */
-			//	onBeforeRendering: function() {
-			//
-			//	},
-
-		/**
-		 * Called when the View has been rendered (so its HTML is part of the document). Post-rendering manipulations of the HTML could be done here.
-		 * This hook is the same one that SAPUI5 controls get after being rendered.
-		 * @memberOf com.sap.scholar2016.cabmini.view.UserEntryView
-		 */
-		//	onAfterRendering: function() {
-		//
-		//	},
-
-		/**
-		 * Called when the Controller is destroyed. Use this one to free resources and finalize activities.
-		 * @memberOf com.sap.scholar2016.cabmini.view.UserEntryView
-		 */
-		//	onExit: function() {
-		//
-		//	}
-
 	});
 
 });

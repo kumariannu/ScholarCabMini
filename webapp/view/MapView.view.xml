@@ -1,8 +1,28 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.sap.scholar2016.cabmini.controller.MapView"
-	xmlns:html="http://www.w3.org/1999/xhtml">
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout">
 	<Page title="Title">
 		<content>
-			<Button id="butOk" text="OK" press="onPressOk" class="sapUiSmallMargin"></Button>
+			<l:FixFlex class="fixFlexFixedSize" fixContentSize="50px">
+				<l:fixContent>
+					<FlexBox alignItems="Start">
+						<items>
+							<Input id="inpSearch" showSuggestion="true" suggest="onSuggest" suggestionItemSelected="onSuggestSelected"
+								suggestionItems="{/}">
+								<layoutData>
+									<FlexItemData growFactor="1"/>
+								</layoutData>
+								<suggestionItems>
+									<core:Item text="{description}" key="{place_id}"/>
+								</suggestionItems>
+							</Input>
+							<Button id="bntOK" text="OK" press="onPressOk" class="sapUiSmallMarginBegin sapUiSmallMarginEnd"/>
+						</items>
+					</FlexBox>
+				</l:fixContent>
+				<l:flexContent>
+					<HBox id="map_canvas" fitContainer="true" justifyContent="Center" alignItems="Center"/>
+				</l:flexContent>
+			</l:FixFlex>
 		</content>
 	</Page>
 </mvc:View>
