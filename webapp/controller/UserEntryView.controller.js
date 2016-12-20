@@ -61,6 +61,9 @@ sap.ui.define([
 			var binding = new sap.ui.model.Binding(oModel, "/currentUser/cab/canAvail", oModel.getContext("/"));
 			binding.attachChange(function() {
 				_view.byId("sw_avail").setEnabled(JSON.parse(oModel.getJSON()).currentUser.cab.canAvail);
+				if (!JSON.parse(oModel.getJSON()).currentUser.cab.canAvail) {
+					_view.byId("sw_avail").setState(false);
+				}
 			});
 
 			var oData = {
@@ -120,19 +123,21 @@ sap.ui.define([
 						dialog.close();
 						oModel.setProperty('/currentUser', emptyUser);
 						_view.setModel(oModel);
+						_view.byId('btnSave').setEnabled(false);
+						_view.byId('btnAddress').setEnabled(false);
+						_view.byId('sw_avail').setEnabled(false);
 					}
 				}),
 				afterClose: function() {
 					dialog.destroy();
 				}
 			});
-
 			dialog.open();
 		},
 		onSelectAddress: function() {
-				var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-				oRouter.navTo("mapView");
-			}
+			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			oRouter.navTo("mapView");
+		}
 	});
 
 });
