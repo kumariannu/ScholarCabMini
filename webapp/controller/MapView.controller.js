@@ -19,7 +19,7 @@ sap.ui.define([
 			onClick: function(lat, long) {
 				console.log("Clicked location: " + lat + "°N " + long + "°E");
 			},
-			onDistance: function(address, distance) {
+			onRoute: function(address, distance) {
 				console.log("Address is " + address + " and Distance from SAP is " + distance + " km");
 			}
 		},
@@ -32,7 +32,7 @@ sap.ui.define([
 				GoogleMaps._directionsService.route({
 					origin: GoogleMaps._data.locSAP,
 					destination: destination,
-					travelMode: 'DRIVING'
+					travelMode: 'TRANSIT'
 				}, function(result, sttus) {
 					if (sttus === 'OK') {
 						GoogleMaps._directionsDisplay.setDirections(result);
@@ -53,7 +53,7 @@ sap.ui.define([
 		_distanceService: null,
 		_directionsService: null,
 		_directionsDisplay: null,
-		init: function(divInst, onClickCallback, onDistanceCallback) {
+		init: function(divInst, onClickCallback, onRouteCallback) {
 			GoogleMaps._geocoder = new google.maps.Geocoder();
 			GoogleMaps._map = new google.maps.Map(divInst, {
 				center: GoogleMaps._data.locSAP,
@@ -80,8 +80,8 @@ sap.ui.define([
 			if (onClickCallback && typeof onClickCallback === "function") {
 				GoogleMaps._callbacks.onClick = onClickCallback;
 			}
-			if (onDistanceCallback && typeof onDistanceCallback === "function") {
-				GoogleMaps._callbacks.onDistance = onDistanceCallback;
+			if (onRouteCallback && typeof onRouteCallback === "function") {
+				GoogleMaps._callbacks.onRoute = onRouteCallback;
 			}
 		},
 		getPlaceSuggestions: function(queryInp, onSuggestionsCallback) {
@@ -130,8 +130,8 @@ sap.ui.define([
 					alert('Error: ' + status);
 				} else {
 					var _distance = parseFloat(response.rows[0].elements[0].distance.text.split(" km")[0]);
-					if (GoogleMaps._callbacks.onDistance && typeof GoogleMaps._callbacks.onDistance === "function") {
-						GoogleMaps._callbacks.onDistance(response.destinationAddresses[0], _distance);
+					if (GoogleMaps._callbacks.onRoute && typeof GoogleMaps._callbacks.onRoute === "function") {
+						GoogleMaps._callbacks.onRoute(response.destinationAddresses[0], _distance);
 					}
 				}
 			});
