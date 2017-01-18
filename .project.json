@@ -6,7 +6,8 @@
   "build": {
     "targetFolder": "dist",
     "sourceFolder": "webapp",
-    "buildRequired": true
+    "buildRequired": true,
+    "lastBuildDateTime": "Thu, 01 Dec 2016 10:15:21 GMT"
   },
   "generation": [
     {
@@ -38,5 +39,10 @@
       "xml": "fioriXmlAnalysis",
       "js": "fioriJsValidator"
     }
+  },
+  "hcpdeploy": {
+    "account": "add7a41bc",
+    "name": "solexptools",
+    "lastVersionWeTriedToDeploy": "1.2.1"
   }
 }

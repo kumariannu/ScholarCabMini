@@ -1,0 +1,64 @@
+{
+	"currentUser": {
+		"username": "",
+		"name": "",
+		"email": "",
+		"cab": {
+			"address": "",
+			"distance": "0 KM",
+			"canAvail": false,
+			"availed": false
+		}
+	},
+	"userList": [{
+		"username": "I327891",
+		"name": "Merbin J Anselm",
+		"email": "merbin.j.anselm@sap.com",
+		"cab": {
+			"address": "",
+			"distance": "0 KM",
+			"canAvail": false,
+			"availed": false
+		}
+	}, {
+		"username": "I328247",
+		"name": "Vigneshbabu V",
+		"email": "vigneshbabu.venkatesh@sap.com",
+		"cab": {
+			"address": "",
+			"distance": "0 KM",
+			"canAvail": false,
+			"availed": false
+		}
+	}, {
+		"username": "I329081",
+		"name": "Maheeth Reddy Chintala",
+		"email": "maheeth.reddy.chintala@sap.com",
+		"cab": {
+			"address": "",
+			"distance": "0 KM",
+			"canAvail": false,
+			"availed": false
+		}
+	}, {
+		"username": "I327946",
+		"name": "Soumya Mahata",
+		"email": "soumya.mahata@sap.com",
+		"cab": {
+			"address": "",
+			"distance": "0 KM",
+			"canAvail": false,
+			"availed": false
+		}
+	}, {
+		"username": "I329248",
+		"name": "Sneha Vishnuvardhan",
+		"email": "sneha.vishnuvardhan@sap.com",
+		"cab": {
+			"address": "",
+			"distance": "0 KM",
+			"canAvail": false,
+			"availed": false
+		}
+	}]
+}

@@ -15,7 +15,6 @@
 			"version": "1.40.12"
 		}
 	},
-
 	"sap.ui": {
 		"_version": "1.1.0",
 		"technology": "UI5",
@@ -35,10 +34,8 @@
 		"supportedThemes": [
 			"sap_hcb",
 			"sap_belize"
-
 		]
 	},
-
 	"sap.ui5": {
 		"_version": "1.1.0",
 		"rootView": {
@@ -66,9 +63,11 @@
 			}
 		},
 		"resources": {
-			"css": [{
-				"uri": "css/style.css"
-			}]
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
 		},
 		"routing": {
 			"config": {
@@ -81,11 +80,6 @@
 			"routes": [
 				{
 					"pattern": "",
-					"name": "welcome",
-					"target": "app"
-				},
-				{
-					"pattern": "userEntryView",
 					"name": "userEntryView",
 					"target": "userEntryView"
 				},
@@ -100,12 +94,16 @@
 					"viewName": "AppView"
 				},
 				"userEntryView": {
-					"viewName": "UseEntryView"
+					"viewName": "UserEntryView"
 				},
 				"mapView": {
 					"viewName": "MapView"
 				}
 			}
 		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
 	}
 }
